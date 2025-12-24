@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Did You Know Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 4px solid #2d3561;
+        }
+
+        .lightbulb-container {
+            position: absolute;
+            top: -60px;
+            right: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .lightbulb {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .bulb {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 50%;
+            position: relative;
+            border: 3px solid #2d3561;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .bulb::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 8px;
+            background: #2d3561;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .bulb::after {
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 40%;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            top: 20%;
+            left: 25%;
+            transform: rotate(-45deg);
+        }
+
+        .rays {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .ray {
+            position: absolute;
+            width: 3px;
+            height: 15px;
+            background: #2d3561;
+            border-radius: 2px;
+            left: 50%;
+            top: 50%;
+            transform-origin: center;
+        }
+
+        .ray:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg) translateY(-45px); }
+        .ray:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg) translateY(-45px); }
+        .ray:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg) translateY(-45px); }
+        .ray:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg) translateY(-45px); }
+        .ray:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg) translateY(-45px); }
+        .ray:nth-child(6) { transform: translate(-50%, -50%) rotate(225deg) translateY(-45px); }
+        .ray:nth-child(7) { transform: translate(-50%, -50%) rotate(270deg) translateY(-45px); }
+        .ray:nth-child(8) { transform: translate(-50%, -50%) rotate(315deg) translateY(-45px); }
+
+        .content {
+            margin-top: 40px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #2d3561;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .fact {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .source {
+            font-size: 0.9rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .corner-line {
+            position: absolute;
+            background: #2d3561;
+        }
+
+        .corner-line.top {
+            width: 60px;
+            height: 4px;
+            top: -4px;
+            left: -4px;
+        }
+
+        .corner-line.left {
+            width: 4px;
+            height: 60px;
+            top: -4px;
+            left: -4px;
+        }
+
+        .corner-line.bottom {
+            width: 60px;
+            height: 4px;
+            bottom: -4px;
+            right: -4px;
+        }
+
+        .corner-line.right {
+            width: 4px;
+            height: 60px;
+            bottom: -4px;
+            right: -4px;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 25px;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .lightbulb-container {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="corner-line top"></div>
+        <div class="corner-line left"></div>
+        <div class="corner-line bottom"></div>
+        <div class="corner-line right"></div>
+        
+        <div class="lightbulb-container">
+            <div class="lightbulb">
+                <div class="bulb"></div>
+                <div class="rays">
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 class="title">DID YOU KNOW?</h2>
+            <p class="fact">
+                Honey never spoils. Archaeologists have found 3,000-year-old honey in ancient Egyptian tombs that was still perfectly edible!
+            </p>
+            <p class="source">— Ancient History Encyclopedia</p>
+        </div>
+    </div>
+</body>
+</html>
